@@ -1,13 +1,45 @@
+
 function getValueInput(){
     var movies = []
     var inputValue = document.getElementById("userInput").value;
-    d3.csv("movies.csv").then(function(data) {
-        for (var i=0; i<data.length; i++){
-            var title = data[i]['title'];
-            if (title.toUpperCase().replace(" ","").indexOf(inputValue.toUpperCase().replace(" ","")) != -1) {
-                movies.push(title);
+    $(function() {
+        var fileName = "./movies.csv";
+        var movies = [];
+        $.ajax({
+            url:fileName,
+            dataType:'text',
+            success: function(data) {
+                var allRow = data;
+                //.split(/\r?\n|\r/)
+                var textLine = '';
+                index = data.indexOf('\n') + 1;
+                for (var i=index; i<data.length; i++){
+                    startIndex = data.indexOf(',', i)+1;
+                    endIndex = data.indexOf(',', startIndex+1);
+                    endlineIndex = data.indexOf('\n', endIndex+1);
+                    i = endlineIndex+1;
+                    secondData = data.slice(startIndex, endIndex);
+                    movies.push(secondData);
+                }
+                // $('#searchResult').append("<br>");
+                // $('#searchResult').append(textLine);
+                movieList = [];
+                for (var i=0; i<movies.length; i++){
+                    var title = movies[i];
+                    if (title.toUpperCase().replace(" ","").indexOf(inputValue.toUpperCase().replace(" ","")) != -1) {
+                        movieList.push(title);
+                    }
+                }
+                $('#searchResult').append("<hr>");
+                for (var i=0; i<movieList.length; i++){
+                    var textLine = movieList[i];
+                    $('#searchResult').append(textLine);
+                    $('#searchResult').append("<br>");
+                }
             }
         }
-    });
-    console.log(movies);
+        );
+    }
+    );
+    
 }
