@@ -2,10 +2,23 @@
 <html>
     <head>
         <title>추천 페이지</title>
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./recommend_page.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <input id="movie" type="text" placeholder="영화 제목을 입력해주세요.">
-        <input value="확인" type="submit" name="submit">
+        <div class="wrap">
+            <div class="search">
+               <input id="userInput" type="text" class="searchTerm" placeholder="영화 제목을 입력해주세요.">
+               <button id="submit" type="submit" class="searchButton" onclick="getValueInput()">
+                 <i class="fa fa-search"></i>
+              </button>
+            </div>
+            <hr>
+         </div>
+         <div class="searchResult">
+             검색 결과
+         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="https://d3js.org/d3.v7.min.js"></script>
         <script type="text/javascript" src="recommend_page.js"></script>

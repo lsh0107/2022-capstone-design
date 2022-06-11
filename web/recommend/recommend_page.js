@@ -1,11 +1,13 @@
-var movies = new Array();
-
-d3.csv("movies.csv").then(function(data) {
-    for (var i=0; i<data.length; i++){
-        movies[i] = data[i]['title'];
-    }
-});
-
-d3.csv("movies.csv").then(function(data) {
-    console.log("Toy Story (1995)" == data[0]['title']);
-});
+function getValueInput(){
+    var movies = []
+    var inputValue = document.getElementById("userInput").value;
+    d3.csv("movies.csv").then(function(data) {
+        for (var i=0; i<data.length; i++){
+            var title = data[i]['title'];
+            if (title.toUpperCase().replace(" ","").indexOf(inputValue.toUpperCase().replace(" ","")) != -1) {
+                movies.push(title);
+            }
+        }
+    });
+    console.log(movies);
+}
