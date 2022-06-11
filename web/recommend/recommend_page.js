@@ -1,5 +1,7 @@
 
 function getValueInput(){
+    const element = document.getElementById('searchResult');
+    element.innerHTML = '검색 결과';
     var movies = []
     var inputValue = document.getElementById("userInput").value;
     $(function() {
@@ -31,15 +33,22 @@ function getValueInput(){
                     }
                 }
                 $('#searchResult').append("<hr>");
+                
                 for (var i=0; i<movieList.length; i++){
                     var textLine = movieList[i];
-                    $('#searchResult').append(textLine);
-                    $('#searchResult').append("<br>");
-                }
+                    $('#searchResult').append("<div id="+i+" onclick=\"dataSave(this.id)\">"+textLine+"</div>");
+                }   
             }
         }
         );
     }
     );
     
+}
+
+// 여기 data에 user가 검색해서 선택한 영화 제목이 담겨있음.
+function dataSave(clickedID){
+    var data = document.getElementById(clickedID).innerText;
+    console.log(data);
+    return data;
 }
