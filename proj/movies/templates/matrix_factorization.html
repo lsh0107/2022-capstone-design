@@ -4,7 +4,7 @@
     <head>
         <title>추천 페이지</title>
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'recommend_page.css'%}">
+        <link rel="stylesheet" href="{% static 'css/recommend_page.css'%}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
@@ -13,7 +13,7 @@
                 <form method="POST">
                     <br>
                     {% csrf_token %}
-                    <input type="text" name="movie_name" id="movie_name" placeholder="영화 제목을 입력해주세요." style="width:225px; height:20px;" >
+                    <input class="input" type="text" name="movie_name" id="movie_name" placeholder="영화 제목을 입력해주세요." style="width:225px; height:20px;" >
                     <input class="btn btn=success" type="submit" value="선택">
                 </form>
 <!--                <h1>{{message}}</h1>-->

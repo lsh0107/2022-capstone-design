@@ -1,15 +1,18 @@
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Main page</title>
+  <link rel="stylesheet" href="{% static 'css/index.css'%}">
 </head>
 <body>
-    </div>
-    <h1>영화추천 사이트</h1>
-    <div id = "top">추천 유형을 선택해주세요.</div><br>
-    <div id = "recommendation">
-        <a href="item_based">1. 비슷한 영화 기반 추천</a><br><br>
-        <a href="matrix_factorization">2. 잠재요인 모델 기반 추천</a><br><br>
+    <div class="content">
+      <h1>영화 추천 사이트</h1>
+      <div id = "top">💡추천 유형을 선택해주세요.</div><br>
+      <div id = "recommendation">
+          <button type="button" class ="button" onClick="location.href='item_based'">비슷한 영화 기반 추천</button><br><br>
+          <button type="button" class ="button" onClick="location.href='matrix_factorization'">잠재요인 모델 기반 추천</button><br><br>
+      </div>
     </div>
 </body>
 </html>
